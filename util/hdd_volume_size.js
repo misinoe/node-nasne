@@ -25,7 +25,7 @@ module.exports = function(Nasne) {
 
     getHDDListAsync()
     .then(function(data) {
-      return _.pluck(_.filter(data.HDD, {"registerFlag": 1}), 'id');
+      return _.map(_.filter(data.HDD, {"registerFlag": 1}), 'id');
     })
     .map(getHDDInfoAsync)
     .reduce(function(total, data) {
